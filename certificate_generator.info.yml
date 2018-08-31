@@ -1,0 +1,6 @@
+type: module
+name: Certificate Generator
+description: "Utilizes the jsPDF library to plug in the date and a Drupal user name into a certificate PDF."
+package: Custom
+version: '8.x-1.x'
+core: '8.x'

@@ -1,0 +1,11 @@
+certificate_generator_admin.settings:
+  title: Certificate Generator Settings
+  description: 'Certificate Generator administration page.'
+  route_name: certificate_generator_admin.settings
+  parent: system.admin_config_ui
+
+certificate_generator_admin.playground:
+  title: Certificate Generator Playground
+  description: 'Certificate Generator Playground.'
+  route_name: certificate_generator_admin.playground
+  parent: system.admin_config_ui

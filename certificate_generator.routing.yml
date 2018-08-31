@@ -1,0 +1,23 @@
+certificate_generator_admin.settings:
+  path: '/admin/config/certificate-generator'
+  defaults:
+    _form: 'Drupal\certificate_generator\Form\CertificateGeneratorAdminSettingsForm'
+    _title: 'Certificate Generator Settings'
+  requirements:
+    _permission: 'administer certificate'
+
+certificate_generator_admin.playground:
+  path: '/admin/config/certificate-generator/playground'
+  defaults:
+    _controller: '\Drupal\certificate_generator\Controller\CertificateGeneratorController::buildPlayGround'
+    _title: 'Certificate Generator Playground'
+  requirements:
+    _permission: 'administer certificate'
+
+interact_course_complete:
+  path: '/ixr-course-complete-certificate'
+  defaults:
+    _controller: '\Drupal\certificate_generator\Controller\CertificateGeneratorController::buildThankYouPage'
+  _title: 'Certificate'
+  requirements:
+    _permission: 'view certificate'

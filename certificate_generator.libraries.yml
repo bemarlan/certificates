@@ -1,0 +1,29 @@
+jspdf:
+  js:
+    js/jspdf/jspdf.min.js: {}
+    js/test.js: {}
+  dependencies:
+    - core/jquery.once
+    - core/jquery
+
+play:
+  css:
+    theme:
+      play/examples/bootstrap/css/bootstrap.css: {}
+      play/examples/bootstrap/css/bootstrap-responsive.css: {}
+      play/examples/css/editor.css: {}
+  js:
+    play/examples/js/ace.js: {}
+    play/dist/jspdf.debug.js: {}
+    play/examples/js/editor.js: {}
+  dependencies:
+    - core/jquery.once
+    - core/jquery
+
+interact_course_complete:
+  js:
+    js/jspdf/jspdf.min.js: {}
+    js/interact_course_complete.js: {}
+  dependencies:
+    - core/jquery.once
+    - core/jquery

@@ -24,10 +24,9 @@ class CertificateGeneratorAdminSettingsForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $form['class'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Place an icon next to external links.'),
-      '#default_value' => '',
-      '#description' => $this->t('Places an <span class="ext"> </span>&nbsp; icon next to external links.'),
+      '#type' => 'textarea',
+      '#title' => $this->t('Certificate Code'),
+      '#description' => $this->t('The code created from the <a href="/admin/config/certificate-generator/playground" target="_blank">playground</a> that will make up the certificate.'),
     ];
     
     $form['submit'] = [

@@ -16,21 +16,11 @@
 </div>
 
 <head>
-    <!-- Bootstrap -->
-{#     <base href="modules/certificate_generator/">
-    <link href="./play/examples/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="./play/examples/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Editor CSS -->
-    <link href="./play/examples/css/editor.css" rel="stylesheet">
-
-    <!-- See closing body for JS -->
- #}
-    <script src="https://use.edgefonts.net/source-code-pro.js"></script>
-  </head>
+  <script src="https://use.edgefonts.net/source-code-pro.js"></script>
+</head>
 
   <body>
-    <div class="container">x
+    <div class="container">
 
       <div class="masthead">
         <h1 class="muted">jsPDF</h1>
@@ -50,8 +40,13 @@
         <div id="editor" class="bypass"></div>
 
          <div class="controls">
-          <div class="pull-right">
+
+{#           <div class="pull-right">
             <a href="#" class="btn btn-primary download-pdf">Download PDF</a>
+          </div> #}
+
+          <div class="pull-right">
+            <a href="#" class="btn btn-primary">{{ save }}</a>
           </div>
 
           <label class="checkbox">

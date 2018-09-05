@@ -75,7 +75,8 @@ class CertificateGeneratorController extends ControllerBase {
     return [
       '#theme' => 'certificate_generator_playground',
       '#variable1' => t("First"),
-      '#variable2' => t("Second")
+      '#variable2' => t("Second"),
+      '#save' => t("Save Certificate Template")
     ];
 
   }

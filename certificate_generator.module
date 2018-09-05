@@ -40,6 +40,7 @@ function certificate_generator_theme(array $existing, $type, $theme, $path) {
       'variables' => array(
         'variable1' => NULL,
         'variable2' => NULL,
+        'save' => NULL,
       ),
     ),
   );

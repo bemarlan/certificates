@@ -3,11 +3,12 @@
 namespace Drupal\certificate_generator\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * 
+ * Controller for certificate_generator.
  */
 class CertificateGeneratorController extends ControllerBase {
 
@@ -19,11 +20,19 @@ class CertificateGeneratorController extends ControllerBase {
   protected $user;
 
   /**
+   * Creation form.
+   *
+   * @var \Drupal\Core\Form\FormBuilderInterface
+   */
+  protected $form_builder;
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
     return new static (
-      $container->get('current_user')
+      $container->get('current_user'),
+      $container->get('form_builder')
     );
   }
 
@@ -33,8 +42,9 @@ class CertificateGeneratorController extends ControllerBase {
    * @param Drupal\Core\Session\AccountInterface $account
    *   Current account.
    */
-  public function __construct(AccountInterface $account) {
+  public function __construct(AccountInterface $account, FormBuilderInterface $formBuilder) {
     $this->user = $account;
+    $this->form_builder = $formBuilder;
   }
 
   /**
@@ -44,23 +54,31 @@ class CertificateGeneratorController extends ControllerBase {
    *   The display name of the current user.
    */
   protected function getName() {
-    /** @var \Drupal\Core\Session\AccountInterface->getDisplayName() $username */
+    /**
+     * User's display name.
+     *
+     * @var \Drupal\Core\Session\AccountInterface->getDisplayName()
+     */
     $username = $this->user->getDisplayName();
+
     return $username;
   }
 
   /**
    * Builds the thank you page when the user downloads their certificate.
    *
+   * @param string $certificate_url
+   *  The certificate url
+   *
    * @return html
    *   HTML displayed on the thank you page.
    */
-  public function buildThankYouPage() {
+  public function buildThankYouPage($certificate_url) {
     $username = $this->getName();
 
     return [
       '#type' => 'markup',
-      '#markup' => '<div class="none CertificateName">' . $username . '</div><div class="content center"><h1 class="pt orange">Thank You</h1><p>Your certificate with your username has been downloaded. Please check your downloads folder to retrieve it.</p></div>',
+      '#markup' => $this->t('<div class="none CertificateName">' . $username . '</div><div class="content center"><h1 class="pt orange">Thank You, @certificate_url.</h1><p>Your certificate with your username has been downloaded. Please check your downloads folder to retrieve it.</p></div>', ['@certificate_url' => $certificate_url])
     ];
   }
 
@@ -71,14 +89,20 @@ class CertificateGeneratorController extends ControllerBase {
    *   -
    */
   public function buildPlayGround() {
+    $form = $this->form_builder->getForm('Drupal\certificate_generator\Form\CertificateGeneratorCreateForm');
 
     return [
       '#theme' => 'certificate_generator_playground',
-      '#variable1' => t("First"),
-      '#variable2' => t("Second"),
-      '#save' => t("Save Certificate Template")
+      '#create_form' => $form
     ];
 
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getEditableConfigNames() {
+    return ['certificate_generator.settings'];
   }
 
 }

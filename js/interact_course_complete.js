@@ -20,20 +20,20 @@
   doc.setFontSize(10);
   doc.addImage(imgData, 'JPEG', 0, 0, 250, 200);
 
-  // Items to be placed on the doc.
+  	// Items to be placed on the doc.
 	var name = $('.CertificateName').text();
 	var date = new Date(),
     	month = (date.getMonth() + 1).toString(),
     	day = date.getDate().toString(),
     	year = date.getFullYear().toString().substr(-2);
 
-  // Place items onto the doc based on coordinates.
+  	// Place items onto the doc based on coordinates.
 	doc.text(73, 83, name);
 	doc.text(108, 141, month);
 	doc.text(122, 141, day);
 	doc.text(135, 141, year);
 
-  // Save doc with this name when user downloads.
+  	// Save doc with this name when user downloads.
 	doc.save('PatientPoint_Interact_Course_Certificate.pdf');
 
 })(jQuery);

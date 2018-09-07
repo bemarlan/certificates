@@ -1,7 +1,6 @@
 jspdf:
   js:
     js/jspdf/jspdf.min.js: {}
-    js/test.js: {}
   dependencies:
     - core/jquery.once
     - core/jquery
@@ -16,6 +15,7 @@ play:
     play/examples/js/ace.js: {}
     play/dist/jspdf.debug.js: {}
     play/examples/js/editor.js: {}
+    js/certficate-code.js: {}
   dependencies:
     - core/jquery.once
     - core/jquery

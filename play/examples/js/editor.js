@@ -27,7 +27,7 @@ var jsPDFEditor = function() {
 	var aceEditor = function() {
 		editor = ace.edit("editor");
 		// editor.setTheme("ace/theme/twilight");
-		editor.setTheme("ace/theme/ambiance");
+		// editor.setTheme("ace/theme/ambiance");
 		// editor.setTheme("ace/theme/github");
 		editor.setOptions({
 			fontFamily: "monospace",

@@ -1,11 +1,19 @@
-certificate_generator_admin.settings:
-  title: Certificate Generator Settings
-  description: 'Certificate Generator administration page.'
-  route_name: certificate_generator_admin.settings
-  parent: system.admin_config_ui
+certificate_generator.collection:
+  title: Certificate Generator
+  description: 'Manage Certificates'
+  route_name: certificate_generator.collection
+  parent: system.admin_config_media
 
-certificate_generator_admin.playground:
-  title: Certificate Generator Playground
+certificate_generator.create:
+  title: Create Certificate
+  description: 'Certificate Generator administration page.'
+  route_name: certificate_generator.create
+  parent: certificate_generator.collection
+  weight: 1
+
+certificate_generator.playground:
+  title: Certificate Playground
   description: 'Certificate Generator Playground.'
-  route_name: certificate_generator_admin.playground
-  parent: system.admin_config_ui
+  route_name: certificate_generator.playground
+  parent: certificate_generator.collection
+  weight: 2

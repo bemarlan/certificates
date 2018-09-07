@@ -1,0 +1,9 @@
+# Schema for the configuration files of the certificate_generator module.
+
+certificate_generator.settings:
+  type: config_object
+  label: 'Certificate Generator Settings'
+  mapping:
+    certificate_generator_url_prefix:
+      type: string
+      label: 'Certificate URL prefix'

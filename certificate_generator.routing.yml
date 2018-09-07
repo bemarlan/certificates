@@ -1,23 +1,43 @@
-certificate_generator_admin.settings:
-  path: '/admin/config/certificate-generator'
+certificate_generator.collection:
+  path: '/admin/config/media/certificate-generator'
   defaults:
     _form: 'Drupal\certificate_generator\Form\CertificateGeneratorAdminSettingsForm'
-    _title: 'Certificate Generator Settings'
+    _title: 'Certificate Settings'
   requirements:
     _permission: 'administer certificate'
 
-certificate_generator_admin.playground:
-  path: '/admin/config/certificate-generator/playground'
+certificate_generator.create:
+  path: '/admin/config/media/certificate-generator/create'
   defaults:
-    _controller: '\Drupal\certificate_generator\Controller\CertificateGeneratorController::buildPlayGround'
-    _title: 'Certificate Generator Playground'
+    _entity_form: 'paragraphs_type.add'
+    _title: 'Certificate Creation'
   requirements:
     _permission: 'administer certificate'
+
+certificate_generator.playground:
+  path: '/admin/config/media/certificate-generator/playground'
+  defaults:
+    _controller: '\Drupal\certificate_generator\Controller\CertificateGeneratorController::buildPlayGround'
+    _title: 'Certificate Creation Playground'
+  requirements:
+    _permission: 'administer certificate'
+
+######################
+# Certificate Routes #
+######################
 
 interact_course_complete:
   path: '/ixr-course-complete-certificate'
   defaults:
     _controller: '\Drupal\certificate_generator\Controller\CertificateGeneratorController::buildThankYouPage'
-  _title: 'Certificate'
+    _title: 'Certificate'
+  requirements:
+    _permission: 'view certificate'
+
+certificate.canonical:
+  path: '/certificate/{certificate_url}'
+  defaults:
+    _controller: '\Drupal\certificate_generator\Controller\CertificateGeneratorController::buildThankYouPage'
+    _title: 'Certificate'
   requirements:
     _permission: 'view certificate'

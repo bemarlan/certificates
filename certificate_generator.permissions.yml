@@ -1,8 +1,8 @@
 administer certificate:
-  title: 'Administer Certificates'
-  description: 'Create Certificates'
+  title: 'Administer certificates'
+  description: 'Able to create new certificates.'
   restrict access: TRUE
 
 view certificate:
-  title: 'View Course Completed Certificate'
-  description: 'Able to view the Certificate once all lessons in a course are complete.'
+  title: 'View certificate'
+  description: 'Able to view published certificates.'

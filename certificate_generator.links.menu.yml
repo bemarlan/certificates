@@ -17,3 +17,19 @@ certificate_generator.playground:
   route_name: certificate_generator.playground
   parent: certificate_generator.collection
   weight: 2
+
+# Certificate menu items definition
+entity.certificate.collection:
+  title: 'Certificate list'
+  route_name: entity.certificate.collection
+  description: 'List Certificate entities'
+  parent: system.admin_structure
+  weight: 100
+
+# Certificate type menu items definition
+entity.certificate_type.collection:
+  title: 'Certificate type'
+  route_name: entity.certificate_type.collection
+  description: 'List Certificate type (bundles)'
+  parent: system.admin_structure
+  weight: 99

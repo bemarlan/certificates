@@ -1,8 +1,35 @@
-administer certificate:
-  title: 'Administer certificates'
-  description: 'Able to create new certificates.'
-  restrict access: TRUE
+# administer certificates:
+#   title: 'Administer certificates'
+#   description: 'Able to create new certificates.'
+#   restrict access: TRUE
 
-view certificate:
-  title: 'View certificate'
-  description: 'Able to view published certificates.'
+# add certificate entities:
+#   title: 'Create new Certificate entities'
+
+administer certificate entities:
+  title: 'Administer Certificate entities'
+  description: 'Allow to access the administration form to configure Certificate entities.'
+  restrict access: true
+
+delete certificate entities:
+  title: 'Delete Certificate entities'
+
+edit certificate entities:
+  title: 'Edit Certificate entities'
+
+view published certificate entities:
+  title: 'View published Certificate entities'
+
+view unpublished certificate entities:
+  title: 'View unpublished Certificate entities'
+
+view all certificate revisions:
+  title: 'View all Certificate revisions'
+
+revert all certificate revisions:
+  title: 'Revert all Certificate revisions'
+  description: 'Role requires permission <em>view Certificate revisions</em> and <em>edit rights</em> for certificate entities in question or <em>administer certificate entities</em>.'
+
+delete all certificate revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Certificate revisions</em> and <em>delete rights</em> for certificate entities in question or <em>administer certificate entities</em>.'

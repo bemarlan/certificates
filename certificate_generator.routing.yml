@@ -4,7 +4,7 @@ certificate_generator.collection:
     _form: 'Drupal\certificate_generator\Form\CertificateGeneratorAdminSettingsForm'
     _title: 'Certificate Settings'
   requirements:
-    _permission: 'administer certificate'
+    _permission: 'administer certificate entities'
 
 certificate_generator.create:
   path: '/admin/config/media/certificate-generator/create'
@@ -12,7 +12,7 @@ certificate_generator.create:
     _entity_form: 'paragraphs_type.add'
     _title: 'Certificate Creation'
   requirements:
-    _permission: 'administer certificate'
+    _permission: 'administer certificate entities'
 
 certificate_generator.playground:
   path: '/admin/config/media/certificate-generator/playground'
@@ -20,7 +20,7 @@ certificate_generator.playground:
     _controller: '\Drupal\certificate_generator\Controller\CertificateGeneratorController::buildPlayGround'
     _title: 'Certificate Creation Playground'
   requirements:
-    _permission: 'administer certificate'
+    _permission: 'administer certificate entities'
 
 ######################
 # Certificate Routes #
@@ -32,7 +32,7 @@ interact_course_complete:
     _controller: '\Drupal\certificate_generator\Controller\CertificateGeneratorController::buildThankYouPage'
     _title: 'Certificate'
   requirements:
-    _permission: 'view certificate'
+    _permission: 'view published certificate entities'
 
 certificate.canonical:
   path: '/certificate/{certificate_url}'
@@ -40,4 +40,4 @@ certificate.canonical:
     _controller: '\Drupal\certificate_generator\Controller\CertificateGeneratorController::buildThankYouPage'
     _title: 'Certificate'
   requirements:
-    _permission: 'view certificate'
+    _permission: 'view published certificate entities'

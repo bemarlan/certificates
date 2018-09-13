@@ -1,0 +1,10 @@
+entity.certificate.add_form:
+  route_name: entity.certificate.add_page
+  title: 'Add Certificate'
+  appears_on:
+    - entity.certificate.collection
+entity.certificate_type.add_form:
+  route_name: entity.certificate_type.add_form
+  title: 'Add Certificate type'
+  appears_on:
+    - entity.certificate_type.collection

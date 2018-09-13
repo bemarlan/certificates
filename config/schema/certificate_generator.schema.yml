@@ -7,3 +7,16 @@ certificate_generator.settings:
     certificate_generator_url_prefix:
       type: string
       label: 'Certificate URL prefix'
+
+certificate_generator.certificate_type.*:
+  type: config_entity
+  label: 'Certificate type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

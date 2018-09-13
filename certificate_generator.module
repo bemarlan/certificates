@@ -5,8 +5,25 @@
  * Certificate Generator core functions.
  */
 
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function certificate_generator_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the certificates module.
+    case 'help.page.certificate_generator':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('A certificate.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
 
 /**
  * Implements hook_install().
@@ -37,21 +54,66 @@ function certificate_generator_preprocess_page(array &$variables) {
  * Implements hook_form_alter().
  */
 function certificate_generator_form_alter(&$form, FormStateInterface $form_state) {
-  // $form['#attached']['library'][] = 'certificate_generator/play';
   $form['#attached']['library'][] = 'certificate_generator/jspdf';
 }
 
 /**
  * Implements hook_theme().
  */
-function certificate_generator_theme(array $existing, $type, $theme, $path) {
-  return [
-    'certificate_generator_playground' => [
-      'render element' => 'form',
-      'template' => 'playground',
-      'variables' => [
-        'create_form' => NULL
-      ]
-    ]
+function certificate_generator_theme() {
+  $theme = [];
+  $theme['certificate'] = [
+    'render element' => 'elements',
+    'file' => 'certificate.page.inc',
+    'template' => 'certificate',
   ];
+  $theme['certificate_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'certificate.page.inc',
+  ];
+  return $theme;
+  // return [
+  //   'certificate_generator_playground' => [
+  //     'render element' => 'form',
+  //     'template' => 'playground',
+  //     'variables' => [
+  //       'create_form' => NULL
+  //     ]
+  //   ]
+  // ];
+}
+
+// /**
+//  * Implements hook_theme().
+//  */
+// function certificate_generator_theme() {
+//   $theme = [];
+//   $theme['certificate'] = [
+//     'render element' => 'elements',
+//     'file' => 'certificate.page.inc',
+//     'template' => 'certificate',
+//   ];
+//   $theme['certificate_content_add_list'] = [
+//     'render element' => 'content',
+//     'variables' => ['content' => NULL],
+//     'file' => 'certificate.page.inc',
+//   ];
+//   return $theme;
+// }
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function certificate_generator_theme_suggestions_certificate(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#certificate'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'certificate__' . $sanitized_view_mode;
+  $suggestions[] = 'certificate__' . $entity->bundle();
+  $suggestions[] = 'certificate__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'certificate__' . $entity->id();
+  $suggestions[] = 'certificate__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
 }

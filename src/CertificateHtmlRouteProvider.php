@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator;
+namespace Drupal\certificates;
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
@@ -64,7 +64,7 @@ class CertificateHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route
         ->setDefaults([
           '_title' => "{$entity_type->getLabel()} revisions",
-          '_controller' => '\Drupal\certificate_generator\Controller\CertificateController::revisionOverview',
+          '_controller' => '\Drupal\certificates\Controller\CertificateController::revisionOverview',
         ])
         ->setRequirement('_permission', 'access certificate revisions')
         ->setOption('_admin_route', TRUE);
@@ -87,8 +87,8 @@ class CertificateHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('revision'));
       $route
         ->setDefaults([
-          '_controller' => '\Drupal\certificate_generator\Controller\CertificateController::revisionShow',
-          '_title_callback' => '\Drupal\certificate_generator\Controller\CertificateController::revisionPageTitle',
+          '_controller' => '\Drupal\certificates\Controller\CertificateController::revisionShow',
+          '_title_callback' => '\Drupal\certificates\Controller\CertificateController::revisionPageTitle',
         ])
         ->setRequirement('_permission', 'access certificate revisions')
         ->setOption('_admin_route', TRUE);
@@ -111,7 +111,7 @@ class CertificateHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('revision_revert'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\certificate_generator\Form\CertificateRevisionRevertForm',
+          '_form' => '\Drupal\certificates\Form\CertificateRevisionRevertForm',
           '_title' => 'Revert to earlier revision',
         ])
         ->setRequirement('_permission', 'revert all certificate revisions')
@@ -135,7 +135,7 @@ class CertificateHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('revision_delete'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\certificate_generator\Form\CertificateRevisionDeleteForm',
+          '_form' => '\Drupal\certificates\Form\CertificateRevisionDeleteForm',
           '_title' => 'Delete earlier revision',
         ])
         ->setRequirement('_permission', 'delete all certificate revisions')
@@ -159,7 +159,7 @@ class CertificateHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('translation_revert'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\certificate_generator\Form\CertificateRevisionRevertTranslationForm',
+          '_form' => '\Drupal\certificates\Form\CertificateRevisionRevertTranslationForm',
           '_title' => 'Revert to earlier revision of a translation',
         ])
         ->setRequirement('_permission', 'revert all certificate revisions')
@@ -183,7 +183,7 @@ class CertificateHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route("/admin/structure/{$entity_type->id()}/settings");
       $route
         ->setDefaults([
-          '_form' => 'Drupal\certificate_generator\Form\CertificateSettingsForm',
+          '_form' => 'Drupal\certificates\Form\CertificateSettingsForm',
           '_title' => "{$entity_type->getLabel()} settings",
         ])
         ->setRequirement('_permission', $entity_type->getAdminPermission())

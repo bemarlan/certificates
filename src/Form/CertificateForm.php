@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator\Form;
+namespace Drupal\certificates\Form;
 
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Form controller for Certificate edit forms.
  *
- * @ingroup certificate_generator
+ * @ingroup certificates
  */
 class CertificateForm extends ContentEntityForm {
 
@@ -16,7 +16,7 @@ class CertificateForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    /* @var $entity \Drupal\certificate_generator\Entity\Certificate */
+    /* @var $entity \Drupal\certificates\Entity\Certificate */
     $form = parent::buildForm($form, $form_state);
 
     if (!$this->entity->isNew()) {

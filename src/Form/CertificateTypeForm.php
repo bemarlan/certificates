@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator\Form;
+namespace Drupal\certificates\Form;
 
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
@@ -15,8 +15,8 @@ class CertificateTypeForm extends EntityForm {
    */
   public function form(array $form, FormStateInterface $form_state) {
     $form = parent::form($form, $form_state);
-
     $certificate_type = $this->entity;
+
     $form['label'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Label'),
@@ -30,12 +30,10 @@ class CertificateTypeForm extends EntityForm {
       '#type' => 'machine_name',
       '#default_value' => $certificate_type->id(),
       '#machine_name' => [
-        'exists' => '\Drupal\certificate_generator\Entity\CertificateType::load',
+        'exists' => '\Drupal\certificates\Entity\CertificateType::load',
       ],
       '#disabled' => !$certificate_type->isNew(),
     ];
-
-    /* You will need additional form elements for your custom properties. */
 
     return $form;
   }

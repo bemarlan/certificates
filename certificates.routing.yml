@@ -1,0 +1,43 @@
+certificates.collection:
+  path: '/admin/config/media/certificates'
+  defaults:
+    _form: 'Drupal\certificates\Form\CertificatesAdminSettingsForm'
+    _title: 'Certificate Settings'
+  requirements:
+    _permission: 'administer certificate entities'
+
+certificates.create:
+  path: '/admin/config/media/certificates/create'
+  defaults:
+    _entity_form: 'certificate.add'
+    _title: 'Certificate Creation'
+  requirements:
+    _permission: 'administer certificate entities'
+
+certificates.playground:
+  path: '/admin/config/media/certificates/playground'
+  defaults:
+    _controller: '\Drupal\certificates\Controller\CertificatesController::buildPlayGround'
+    _title: 'Certificate Creation Playground'
+  requirements:
+    _permission: 'administer certificate entities'
+
+######################
+# Certificate Routes #
+######################
+
+interact_course_complete:
+  path: '/ixr-course-complete-certificate'
+  defaults:
+    _controller: '\Drupal\certificates\Controller\CertificatesController::buildThankYouPage'
+    _title: 'Certificate'
+  requirements:
+    _permission: 'view published certificate entities'
+
+certificate.canonical:
+  path: '/certificate/{certificate_url}'
+  defaults:
+    _controller: '\Drupal\certificates\Controller\CertificatesController::buildThankYouPage'
+    _title: 'Certificate'
+  requirements:
+    _permission: 'view published certificate entities'

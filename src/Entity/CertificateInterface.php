@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator\Entity;
+namespace Drupal\certificates\Entity;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\RevisionLogInterface;
@@ -10,7 +10,7 @@ use Drupal\user\EntityOwnerInterface;
 /**
  * Provides an interface for defining Certificate entities.
  *
- * @ingroup certificate_generator
+ * @ingroup certificates
  */
 interface CertificateInterface extends ContentEntityInterface, RevisionLogInterface, EntityChangedInterface, EntityOwnerInterface {
 
@@ -30,7 +30,7 @@ interface CertificateInterface extends ContentEntityInterface, RevisionLogInterf
    * @param string $name
    *   The Certificate name.
    *
-   * @return \Drupal\certificate_generator\Entity\CertificateInterface
+   * @return \Drupal\certificates\Entity\CertificateInterface
    *   The called Certificate entity.
    */
   public function setName($name);
@@ -49,7 +49,7 @@ interface CertificateInterface extends ContentEntityInterface, RevisionLogInterf
    * @param int $timestamp
    *   The Certificate creation timestamp.
    *
-   * @return \Drupal\certificate_generator\Entity\CertificateInterface
+   * @return \Drupal\certificates\Entity\CertificateInterface
    *   The called Certificate entity.
    */
   public function setCreatedTime($timestamp);
@@ -70,7 +70,7 @@ interface CertificateInterface extends ContentEntityInterface, RevisionLogInterf
    * @param bool $published
    *   TRUE to set this Certificate to published, FALSE to set it to unpublished.
    *
-   * @return \Drupal\certificate_generator\Entity\CertificateInterface
+   * @return \Drupal\certificates\Entity\CertificateInterface
    *   The called Certificate entity.
    */
   public function setPublished($published);
@@ -89,7 +89,7 @@ interface CertificateInterface extends ContentEntityInterface, RevisionLogInterf
    * @param int $timestamp
    *   The UNIX timestamp of when this revision was created.
    *
-   * @return \Drupal\certificate_generator\Entity\CertificateInterface
+   * @return \Drupal\certificates\Entity\CertificateInterface
    *   The called Certificate entity.
    */
   public function setRevisionCreationTime($timestamp);
@@ -108,7 +108,7 @@ interface CertificateInterface extends ContentEntityInterface, RevisionLogInterf
    * @param int $uid
    *   The user ID of the revision author.
    *
-   * @return \Drupal\certificate_generator\Entity\CertificateInterface
+   * @return \Drupal\certificates\Entity\CertificateInterface
    *   The called Certificate entity.
    */
   public function setRevisionUserId($uid);

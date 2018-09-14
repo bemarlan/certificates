@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\certificate_generator\Controller;
+namespace Drupal\certificates\Controller;
 
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Url;
-use Drupal\certificate_generator\Entity\CertificateInterface;
+use Drupal\certificates\Entity\CertificateInterface;
 
 /**
  * Class CertificateController.
@@ -48,7 +48,7 @@ class CertificateController extends ControllerBase implements ContainerInjection
   /**
    * Generates an overview table of older revisions of a Certificate .
    *
-   * @param \Drupal\certificate_generator\Entity\CertificateInterface $certificate
+   * @param \Drupal\certificates\Entity\CertificateInterface $certificate
    *   A Certificate  object.
    *
    * @return array
@@ -75,7 +75,7 @@ class CertificateController extends ControllerBase implements ContainerInjection
     $latest_revision = TRUE;
 
     foreach (array_reverse($vids) as $vid) {
-      /** @var \Drupal\certificate_generator\CertificateInterface $revision */
+      /** @var \Drupal\certificates\CertificateInterface $revision */
       $revision = $certificate_storage->loadRevision($vid);
       // Only show revisions that are affected by the language that is being
       // displayed.

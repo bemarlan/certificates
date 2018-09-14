@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator\Controller;
+namespace Drupal\certificates\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Form\FormBuilderInterface;
@@ -8,9 +8,9 @@ use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Controller for certificate_generator.
+ * Controller for certificates.
  */
-class CertificateGeneratorController extends ControllerBase {
+class CertificatesController extends ControllerBase {
 
   /**
    * Current user.
@@ -37,7 +37,7 @@ class CertificateGeneratorController extends ControllerBase {
   }
 
   /**
-   * Constructs the CertificateGeneratorController.
+   * Constructs the CertificatesController.
    *
    * @param Drupal\Core\Session\AccountInterface $account
    *   Current account.
@@ -78,7 +78,7 @@ class CertificateGeneratorController extends ControllerBase {
 
     return [
       '#type' => 'markup',
-      '#markup' => $this->t('<div class="none CertificateName">' . $username . '</div><div class="content center"><h1 class="pt orange">Thank You, @certificate_url.</h1><p>Your certificate with your username has been downloaded. Please check your downloads folder to retrieve it.</p></div>', ['@certificate_url' => $certificate_url])
+      '#markup' => $this->t('<div class="none CertificatesName">' . $username . '</div><div class="content center"><h1 class="pt orange">Thank You, @certificate_url.</h1><p>Your certificate with your username has been downloaded. Please check your downloads folder to retrieve it.</p></div>', ['@certificate_url' => $certificate_url])
     ];
   }
 
@@ -89,10 +89,10 @@ class CertificateGeneratorController extends ControllerBase {
    *   -
    */
   public function buildPlayGround() {
-    $form = $this->form_builder->getForm('Drupal\certificate_generator\Form\CertificateGeneratorCreateForm');
+    $form = $this->form_builder->getForm('Drupal\certificates\Form\CertificatesCreateForm');
 
     return [
-      '#theme' => 'certificate_generator_playground',
+      '#theme' => 'certificates_playground',
       '#create_form' => $form
     ];
 
@@ -102,7 +102,7 @@ class CertificateGeneratorController extends ControllerBase {
    * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
-    return ['certificate_generator.settings'];
+    return ['certificates.settings'];
   }
 
 }

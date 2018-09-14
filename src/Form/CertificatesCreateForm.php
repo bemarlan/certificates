@@ -1,28 +1,28 @@
 <?php
 
-namespace Drupal\certificate_generator\Form;
+namespace Drupal\certificates\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Displays the certificate_generator creation form.
+ * Displays the certificates creation form.
  */
-class CertificateGeneratorCreateForm extends ConfigFormBase {
+class CertificatesCreateForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'certificate_generator_create_form';
+    return 'certificates_create_form';
   }
 
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('certificate_generator.settings');
+    $config = $this->config('certificates.settings');
 
     $form['name'] = [
       '#type' => 'textfield',
@@ -39,7 +39,7 @@ class CertificateGeneratorCreateForm extends ConfigFormBase {
       '#size' => 60,
       '#maxlength' => 128,
       '#required' => TRUE,
-      //'#field_prefix' => $config->get('certificate_generator_url_prefix') . '/certificate/'
+      //'#field_prefix' => $config->get('certificates_url_prefix') . '/certificate/'
       '#field_prefix' => $this->getRequest()->getSchemeAndHttpHost() . '/certificate/'
     ];
 
@@ -164,7 +164,7 @@ class CertificateGeneratorCreateForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
-    return ['certificate_generator.settings'];
+    return ['certificates.settings'];
   }
 
 }

@@ -1,19 +1,19 @@
 <?php
 
-namespace Drupal\certificate_generator\Form;
+namespace Drupal\certificates\Form;
 
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Drupal\certificate_generator\Entity\CertificateInterface;
+use Drupal\certificates\Entity\CertificateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a form for reverting a Certificate revision.
  *
- * @ingroup certificate_generator
+ * @ingroup certificates
  */
 class CertificateRevisionRevertForm extends ConfirmFormBase {
 
@@ -21,7 +21,7 @@ class CertificateRevisionRevertForm extends ConfirmFormBase {
   /**
    * The Certificate revision.
    *
-   * @var \Drupal\certificate_generator\Entity\CertificateInterface
+   * @var \Drupal\certificates\Entity\CertificateInterface
    */
   protected $revision;
 
@@ -130,12 +130,12 @@ class CertificateRevisionRevertForm extends ConfirmFormBase {
   /**
    * Prepares a revision to be reverted.
    *
-   * @param \Drupal\certificate_generator\Entity\CertificateInterface $revision
+   * @param \Drupal\certificates\Entity\CertificateInterface $revision
    *   The revision to be reverted.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The current state of the form.
    *
-   * @return \Drupal\certificate_generator\Entity\CertificateInterface
+   * @return \Drupal\certificates\Entity\CertificateInterface
    *   The prepared revision ready to be stored.
    */
   protected function prepareRevertedRevision(CertificateInterface $revision, FormStateInterface $form_state) {

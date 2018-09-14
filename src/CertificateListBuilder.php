@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator;
+namespace Drupal\certificates;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
@@ -9,10 +9,9 @@ use Drupal\Core\Link;
 /**
  * Defines a class to build a listing of Certificate entities.
  *
- * @ingroup certificate_generator
+ * @ingroup certificates
  */
 class CertificateListBuilder extends EntityListBuilder {
-
 
   /**
    * {@inheritdoc}
@@ -27,7 +26,7 @@ class CertificateListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var $entity \Drupal\certificate_generator\Entity\Certificate */
+    /* @var $entity \Drupal\certificates\Entity\Certificate */
     $row['id'] = $entity->id();
     $row['name'] = Link::createFromRoute(
       $entity->label(),

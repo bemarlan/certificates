@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\certificate_generator;
+namespace Drupal\certificates;
 
 use Drupal\Core\Entity\Sql\SqlContentEntityStorage;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\certificate_generator\Entity\CertificateInterface;
+use Drupal\certificates\Entity\CertificateInterface;
 
 /**
  * Defines the storage handler class for Certificate entities.
@@ -13,7 +13,7 @@ use Drupal\certificate_generator\Entity\CertificateInterface;
  * This extends the base storage class, adding required special handling for
  * Certificate entities.
  *
- * @ingroup certificate_generator
+ * @ingroup certificates
  */
 class CertificateStorage extends SqlContentEntityStorage implements CertificateStorageInterface {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator\Entity;
+namespace Drupal\certificates\Entity;
 
 use Drupal\views\EntityViewsData;
 
@@ -15,8 +15,7 @@ class CertificateViewsData extends EntityViewsData {
   public function getViewsData() {
     $data = parent::getViewsData();
 
-    // Additional information for Views integration, such as table joins, can be
-    // put here.
+    // Additional information for Views integration, such as table joins.
 
     return $data;
   }

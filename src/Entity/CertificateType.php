@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator\Entity;
+namespace Drupal\certificates\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
 
@@ -12,14 +12,14 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *   label = @Translation("Certificate type"),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\certificate_generator\CertificateTypeListBuilder",
+ *     "list_builder" = "Drupal\certificates\CertificateTypeListBuilder",
  *     "form" = {
- *       "add" = "Drupal\certificate_generator\Form\CertificateTypeForm",
- *       "edit" = "Drupal\certificate_generator\Form\CertificateTypeForm",
- *       "delete" = "Drupal\certificate_generator\Form\CertificateTypeDeleteForm"
+ *       "add" = "Drupal\certificates\Form\CertificateTypeForm",
+ *       "edit" = "Drupal\certificates\Form\CertificateTypeForm",
+ *       "delete" = "Drupal\certificates\Form\CertificateTypeDeleteForm"
  *     },
  *     "route_provider" = {
- *       "html" = "Drupal\certificate_generator\CertificateTypeHtmlRouteProvider",
+ *       "html" = "Drupal\certificates\CertificateTypeHtmlRouteProvider",
  *     },
  *   },
  *   config_prefix = "certificate_type",
@@ -31,11 +31,11 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/certificate_type/{certificate_type}",
- *     "add-form" = "/admin/structure/certificate_type/add",
- *     "edit-form" = "/admin/structure/certificate_type/{certificate_type}/edit",
- *     "delete-form" = "/admin/structure/certificate_type/{certificate_type}/delete",
- *     "collection" = "/admin/structure/certificate_type"
+ *     "canonical" = "/admin/structure/certificates/certificate_type/{certificate_type}",
+ *     "add-form" = "/admin/structure/certificates/certificate_type/add",
+ *     "edit-form" = "/admin/structure/certificates/certificate_type/{certificate_type}/edit",
+ *     "delete-form" = "/admin/structure/certificates/certificate_type/{certificate_type}/delete",
+ *     "collection" = "/admin/structure/certificates/certificate_type"
  *   }
  * )
  */

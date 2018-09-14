@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator\Form;
+namespace Drupal\certificates\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -8,9 +8,9 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Displays the certificate_generator settings form.
+ * Displays the certificates settings form.
  */
-class CertificateGeneratorAdminSettingsForm extends ConfigFormBase {
+class CertificatesAdminSettingsForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}
@@ -32,14 +32,14 @@ class CertificateGeneratorAdminSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'certificate_generator_settings_form';
+    return 'certificates_settings_form';
   }
 
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('certificate_generator.settings');
+    $config = $this->config('certificates.settings');
 
     $form['url_prefix'] = [
       '#type' => 'url',
@@ -47,7 +47,7 @@ class CertificateGeneratorAdminSettingsForm extends ConfigFormBase {
       '#size' => 60,
       '#maxlength' => 128,
       '#required' => TRUE,
-      '#default_value' => $config->get('certificate_generator_url_prefix'),
+      '#default_value' => $config->get('certificates_url_prefix'),
       '#field_prefix' => '/certificate/',
       '#description' => $this->t('The URL prefix that will be used when adding new certificates.'),
     ];
@@ -67,8 +67,8 @@ class CertificateGeneratorAdminSettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
 
-    $this->config('certificate_generator.settings')
-      ->set('certificate_generator_url_prefix', $values['url_prefix'])
+    $this->config('certificates.settings')
+      ->set('certificates_url_prefix', $values['url_prefix'])
       ->save();
 
     parent::submitForm($form, $form_state);
@@ -78,7 +78,7 @@ class CertificateGeneratorAdminSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
-    return ['certificate_generator.settings'];
+    return ['certificates.settings'];
   }
 
 }

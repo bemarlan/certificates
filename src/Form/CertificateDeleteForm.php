@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\certificate_generator\Form;
+namespace Drupal\certificates\Form;
 
 use Drupal\Core\Entity\ContentEntityDeleteForm;
 
 /**
  * Provides a form for deleting Certificate entities.
  *
- * @ingroup certificate_generator
+ * @ingroup certificates
  */
 class CertificateDeleteForm extends ContentEntityDeleteForm {
 

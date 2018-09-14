@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator;
+namespace Drupal\certificates;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;

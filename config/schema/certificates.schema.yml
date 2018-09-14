@@ -1,0 +1,22 @@
+# Schema for the configuration files of the certificates module.
+
+certificates.settings:
+  type: config_object
+  label: 'Certificates Settings'
+  mapping:
+    certificates_url_prefix:
+      type: string
+      label: 'Certificate URL prefix'
+
+certificates.certificate_type.*:
+  type: config_entity
+  label: 'Certificate type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

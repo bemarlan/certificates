@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator\Form;
+namespace Drupal\certificates\Form;
 
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityStorageInterface;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Provides a form for deleting a Certificate revision.
  *
- * @ingroup certificate_generator
+ * @ingroup certificates
  */
 class CertificateRevisionDeleteForm extends ConfirmFormBase {
 
@@ -20,7 +20,7 @@ class CertificateRevisionDeleteForm extends ConfirmFormBase {
   /**
    * The Certificate revision.
    *
-   * @var \Drupal\certificate_generator\Entity\CertificateInterface
+   * @var \Drupal\certificates\Entity\CertificateInterface
    */
   protected $revision;
 

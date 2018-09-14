@@ -13,7 +13,7 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
-The Certificate Generator module allows users to create PDFs by utilizing
+The Certificates module allows users to create PDFs by utilizing
 the jsPDF Library.
 
  * For a information on jsPDF, visit
@@ -36,7 +36,7 @@ RECOMMENDED MODULES
 INSTALLATION
 ------------
  
- * Install the Certificate Generator module as you would normally install a
+ * Install the Certificates module as you would normally install a
    contributed Drupal module. Visit: 
    https://drupal.org/documentation/install/modules-themes/modules-8
    for further information.

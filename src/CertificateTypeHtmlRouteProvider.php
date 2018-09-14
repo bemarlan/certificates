@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator;
+namespace Drupal\certificates;
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
@@ -20,7 +20,7 @@ class CertificateTypeHtmlRouteProvider extends AdminHtmlRouteProvider {
   public function getRoutes(EntityTypeInterface $entity_type) {
     $collection = parent::getRoutes($entity_type);
 
-    // Provide your custom entity routes here.
+    // Custom entity routes.
 
     return $collection;
   }

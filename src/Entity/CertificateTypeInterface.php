@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator\Entity;
+namespace Drupal\certificates\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 
@@ -9,5 +9,5 @@ use Drupal\Core\Config\Entity\ConfigEntityInterface;
  */
 interface CertificateTypeInterface extends ConfigEntityInterface {
 
-  // Add get/set methods for your configuration properties here.
+  // get/set methods for configuration properties.
 }

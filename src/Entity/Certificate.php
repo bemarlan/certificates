@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator\Entity;
+namespace Drupal\certificates\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -13,28 +13,28 @@ use Drupal\user\UserInterface;
 /**
  * Defines the Certificate entity.
  *
- * @ingroup certificate_generator
+ * @ingroup certificates
  *
  * @ContentEntityType(
  *   id = "certificate",
  *   label = @Translation("Certificate"),
  *   bundle_label = @Translation("Certificate type"),
  *   handlers = {
- *     "storage" = "Drupal\certificate_generator\CertificateStorage",
+ *     "storage" = "Drupal\certificates\CertificateStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\certificate_generator\CertificateListBuilder",
- *     "views_data" = "Drupal\certificate_generator\Entity\CertificateViewsData",
- *     "translation" = "Drupal\certificate_generator\CertificateTranslationHandler",
+ *     "list_builder" = "Drupal\certificates\CertificateListBuilder",
+ *     "views_data" = "Drupal\certificates\Entity\CertificateViewsData",
+ *     "translation" = "Drupal\certificates\CertificateTranslationHandler",
  *
  *     "form" = {
- *       "default" = "Drupal\certificate_generator\Form\CertificateForm",
- *       "add" = "Drupal\certificate_generator\Form\CertificateForm",
- *       "edit" = "Drupal\certificate_generator\Form\CertificateForm",
- *       "delete" = "Drupal\certificate_generator\Form\CertificateDeleteForm",
+ *       "default" = "Drupal\certificates\Form\CertificateForm",
+ *       "add" = "Drupal\certificates\Form\CertificateForm",
+ *       "edit" = "Drupal\certificates\Form\CertificateForm",
+ *       "delete" = "Drupal\certificates\Form\CertificateDeleteForm",
  *     },
- *     "access" = "Drupal\certificate_generator\CertificateAccessControlHandler",
+ *     "access" = "Drupal\certificates\CertificateAccessControlHandler",
  *     "route_provider" = {
- *       "html" = "Drupal\certificate_generator\CertificateHtmlRouteProvider",
+ *       "html" = "Drupal\certificates\CertificateHtmlRouteProvider",
  *     },
  *   },
  *   base_table = "certificate",
@@ -54,17 +54,17 @@ use Drupal\user\UserInterface;
  *     "status" = "status",
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/certificate/{certificate}",
- *     "add-page" = "/admin/structure/certificate/add",
- *     "add-form" = "/admin/structure/certificate/add/{certificate_type}",
- *     "edit-form" = "/admin/structure/certificate/{certificate}/edit",
- *     "delete-form" = "/admin/structure/certificate/{certificate}/delete",
- *     "version-history" = "/admin/structure/certificate/{certificate}/revisions",
- *     "revision" = "/admin/structure/certificate/{certificate}/revisions/{certificate_revision}/view",
- *     "revision_revert" = "/admin/structure/certificate/{certificate}/revisions/{certificate_revision}/revert",
- *     "revision_delete" = "/admin/structure/certificate/{certificate}/revisions/{certificate_revision}/delete",
- *     "translation_revert" = "/admin/structure/certificate/{certificate}/revisions/{certificate_revision}/revert/{langcode}",
- *     "collection" = "/admin/structure/certificate",
+ *     "canonical" = "/admin/structure/certificates/certificate/{certificate}",
+ *     "add-page" = "/admin/structure/certificates/certificate/add",
+ *     "add-form" = "/admin/structure/certificates/certificate/add/{certificate_type}",
+ *     "edit-form" = "/admin/structure/certificates/certificate/{certificate}/edit",
+ *     "delete-form" = "/admin/structure/certificates/certificate/{certificate}/delete",
+ *     "version-history" = "/admin/structure/certificates/certificate/{certificate}/revisions",
+ *     "revision" = "/admin/structure/certificates/certificate/{certificate}/revisions/{certificate_revision}/view",
+ *     "revision_revert" = "/admin/structure/certificates/certificate/{certificate}/revisions/{certificate_revision}/revert",
+ *     "revision_delete" = "/admin/structure/certificates/certificate/{certificate}/revisions/{certificate_revision}/delete",
+ *     "translation_revert" = "/admin/structure/certificates/certificate/{certificate}/revisions/{certificate_revision}/revert/{langcode}",
+ *     "collection" = "/admin/structure/certificates/certificate",
  *   },
  *   bundle_entity_type = "certificate_type",
  *   field_ui_base_route = "entity.certificate_type.edit_form"
@@ -267,13 +267,6 @@ class Certificate extends RevisionableContentEntityBase implements CertificateIn
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
       ->setDescription(t('The time that the entity was last edited.'));
-
-    $fields['revision_translation_affected'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Revision translation affected'))
-      ->setDescription(t('Indicates if the last edit of a translation belongs to current revision.'))
-      ->setReadOnly(TRUE)
-      ->setRevisionable(TRUE)
-      ->setTranslatable(TRUE);
 
     return $fields;
   }

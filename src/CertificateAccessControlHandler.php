@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\certificate_generator;
+namespace Drupal\certificates;
 
 use Drupal\Core\Entity\EntityAccessControlHandler;
 use Drupal\Core\Entity\EntityInterface;
@@ -10,7 +10,7 @@ use Drupal\Core\Access\AccessResult;
 /**
  * Access controller for the Certificate entity.
  *
- * @see \Drupal\certificate_generator\Entity\Certificate.
+ * @see \Drupal\certificates\Entity\Certificate.
  */
 class CertificateAccessControlHandler extends EntityAccessControlHandler {
 
@@ -18,19 +18,19 @@ class CertificateAccessControlHandler extends EntityAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
-    /** @var \Drupal\certificate_generator\Entity\CertificateInterface $entity */
+    /** @var \Drupal\certificates\Entity\CertificateInterface $entity */
     switch ($operation) {
       case 'view':
         if (!$entity->isPublished()) {
-          return AccessResult::allowedIfHasPermission($account, 'view unpublished certificate entities');
+          return AccessResult::allowedIfHasPermission($account, 'view unpublished Certificate entities');
         }
-        return AccessResult::allowedIfHasPermission($account, 'view published certificate entities');
+        return AccessResult::allowedIfHasPermission($account, 'view published Certificate entities');
 
       case 'update':
-        return AccessResult::allowedIfHasPermission($account, 'edit certificate entities');
+        return AccessResult::allowedIfHasPermission($account, 'edit Certificate entities');
 
       case 'delete':
-        return AccessResult::allowedIfHasPermission($account, 'delete certificate entities');
+        return AccessResult::allowedIfHasPermission($account, 'delete Certificate entities');
     }
 
     // Unknown operation, no opinion.
@@ -41,7 +41,7 @@ class CertificateAccessControlHandler extends EntityAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
-    return AccessResult::allowedIfHasPermission($account, 'add certificate entities');
+    return AccessResult::allowedIfHasPermission($account, 'add Certificate entities');
   }
 
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\certificate_generator;
+namespace Drupal\certificates;
 
 use Drupal\Core\Entity\ContentEntityStorageInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\certificate_generator\Entity\CertificateInterface;
+use Drupal\certificates\Entity\CertificateInterface;
 
 /**
  * Defines the storage handler class for Certificate entities.
@@ -13,14 +13,14 @@ use Drupal\certificate_generator\Entity\CertificateInterface;
  * This extends the base storage class, adding required special handling for
  * Certificate entities.
  *
- * @ingroup certificate_generator
+ * @ingroup certificates
  */
 interface CertificateStorageInterface extends ContentEntityStorageInterface {
 
   /**
    * Gets a list of Certificate revision IDs for a specific Certificate.
    *
-   * @param \Drupal\certificate_generator\Entity\CertificateInterface $entity
+   * @param \Drupal\certificates\Entity\CertificateInterface $entity
    *   The Certificate entity.
    *
    * @return int[]
@@ -42,7 +42,7 @@ interface CertificateStorageInterface extends ContentEntityStorageInterface {
   /**
    * Counts the number of revisions in the default language.
    *
-   * @param \Drupal\certificate_generator\Entity\CertificateInterface $entity
+   * @param \Drupal\certificates\Entity\CertificateInterface $entity
    *   The Certificate entity.
    *
    * @return int

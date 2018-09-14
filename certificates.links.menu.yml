@@ -1,0 +1,35 @@
+certificates.collection:
+  title: Certificates
+  description: 'Manage Certificates'
+  route_name: certificates.collection
+  parent: system.admin_structure
+
+# certificates.create:
+#   title: Create Certificate
+#   description: 'Certificate Generator administration page.'
+#   route_name: certificates.create
+#   parent: certificates.collection
+#   weight: 1
+
+# certificates.playground:
+#   title: Certificate Playground
+#   description: 'Certificate Generator Playground.'
+#   route_name: certificates.playground
+#   parent: certificates.collection
+#   weight: 2
+
+# Certificate menu items definition
+entity.certificate.collection:
+  title: 'Certificate list'
+  route_name: entity.certificate.collection
+  description: 'List Certificate entities'
+  parent: certificates.collection
+  weight: 100
+
+# Certificate type menu items definition
+entity.certificate_type.collection:
+  title: 'Certificate types'
+  route_name: entity.certificate_type.collection
+  description: 'List Certificate type (bundles)'
+  parent: certificates.collection
+  weight: 99

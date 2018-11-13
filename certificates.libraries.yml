@@ -1,10 +1,3 @@
-jspdf:
-  js:
-    js/jspdf/jspdf.min.js: {}
-  dependencies:
-    - core/jquery.once
-    - core/jquery
-
 play:
   css:
     theme:
@@ -12,18 +5,12 @@ play:
       play/examples/bootstrap/css/bootstrap-responsive.css: {}
       play/examples/css/editor.css: {}
   js:
+    play/dist/jspdf.min.js: {}
     play/examples/js/ace.js: {}
-    play/dist/jspdf.debug.js: {}
+    # play/dist/jspdf.debug.js: {}
     play/examples/js/editor.js: {}
+    js/playground.js: {}
     js/certficate-code.js: {}
-  dependencies:
-    - core/jquery.once
-    - core/jquery
-
-interact_course_complete:
-  js:
-    js/jspdf/jspdf.min.js: {}
-    js/interact_course_complete.js: {}
   dependencies:
     - core/jquery.once
     - core/jquery

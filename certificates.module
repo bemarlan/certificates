@@ -29,32 +29,16 @@ function certificates_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_install().
  */
 function certificates_install() {
-  // Set default values for config which require dynamic values.
   \Drupal::configFactory()->getEditable('certificates.settings')
     ->set('certificates_url_prefix', Url::fromRoute('<front>', [], ['absolute' => TRUE]))
     ->save();
 }
 
 /**
- * Implements hook_preprocess_page().
- */
-function certificates_preprocess_page(array &$variables) {
-  $uri = \Drupal::request()->getRequestUri();
-
-  // Return the correct library based on the uri
-  switch ($uri) {
-    case '/ixr-course-complete-certificate':
-      $variables['#attached']['library'][] = 'certificates/interact_course_complete';
-        break;
-  }
-
-}
-
-/**
  * Implements hook_form_alter().
  */
 function certificates_form_alter(&$form, FormStateInterface $form_state) {
-  $form['#attached']['library'][] = 'certificates/jspdf';
+  $form['#attached']['library'][] = 'certificates/play';
 }
 
 /**
@@ -69,38 +53,13 @@ function certificates_theme() {
   ];
   $theme['certificate_content_add_list'] = [
     'render element' => 'content',
-    'variables' => ['content' => NULL],
+    'variables' => [
+      'content' => NULL
+    ],
     'file' => 'certificate.page.inc',
   ];
   return $theme;
-  // return [
-  //   'certificates_playground' => [
-  //     'render element' => 'form',
-  //     'template' => 'playground',
-  //     'variables' => [
-  //       'create_form' => NULL
-  //     ]
-  //   ]
-  // ];
 }
-
-// /**
-//  * Implements hook_theme().
-//  */
-// function certificates_theme() {
-//   $theme = [];
-//   $theme['certificate'] = [
-//     'render element' => 'elements',
-//     'file' => 'certificate.page.inc',
-//     'template' => 'certificate',
-//   ];
-//   $theme['certificate_content_add_list'] = [
-//     'render element' => 'content',
-//     'variables' => ['content' => NULL],
-//     'file' => 'certificate.page.inc',
-//   ];
-//   return $theme;
-// }
 
 /**
 * Implements hook_theme_suggestions_HOOK().

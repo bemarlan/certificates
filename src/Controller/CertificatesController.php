@@ -3,6 +3,7 @@
 namespace Drupal\certificates\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -82,21 +83,22 @@ class CertificatesController extends ControllerBase {
     ];
   }
 
-  /**
-   * Builds the playground page for the site builder to create a PDF.
-   *
-   * @return -
-   *   -
-   */
-  public function buildPlayGround() {
-    $form = $this->form_builder->getForm('Drupal\certificates\Form\CertificatesCreateForm');
+  // /**
+  //  * Builds the playground page for the site builder to create a PDF.
+  //  *
+  //  * @return -
+  //  *   -
+  //  */
+  // public function buildPlayGround() {
+  //   // $form = $this->form_builder->getForm('Drupal\certificates\Form\CertificatesCreateForm');
+  //   // $form = $this->form_builder->getForm('Drupal\certificates\Form\CertificateForm');
 
-    return [
-      '#theme' => 'certificates_playground',
-      '#create_form' => $form
-    ];
+  //   return [
+  //     '#theme' => 'certificate_playground',
+  //     // '#add_form' => $form
+  //   ];
 
-  }
+  // }
 
   /**
    * {@inheritdoc}

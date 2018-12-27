@@ -29,23 +29,13 @@ class CertificateForm extends ContentEntityForm {
       ];
     }
 
-    $form['download'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Automatically download'),
-      '#required' => TRUE,
-      '#options' => [
-        FALSE => $this->t('No'),
-        TRUE => $this->t('Yes')
-      ],
-      '#description' => $this->t('Whether the certificate should automatically download for the user.')
-    ];
-
     $form['file_name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Certficate file name'),
+      '#required' => TRUE,
       '#size' => 60,
       '#maxlength' => 128,
-      '#description' => $this->t('If the certificate is set to download automatically, enter the file name.'),
+      '#description' => $this->t('Enter the file name for the certificate download.'),
       '#field_suffix' => '.pdf'
     ];
 

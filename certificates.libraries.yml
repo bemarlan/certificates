@@ -1,5 +1,7 @@
 play:
   css:
+    component:
+      css/playground.css: {}
     theme:
       play/examples/bootstrap/css/bootstrap.css: {}
       play/examples/bootstrap/css/bootstrap-responsive.css: {}

@@ -113,27 +113,11 @@ class CertificatesCreateForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    $values = $form_state->getValues();
-
-    // File name must be entered if it is downloading automatically
-    if ($values['download']) {
-      if (!$values['file_name']) {
-        $form_state->setErrorByName('file_name', $this->t('A certificate file name is required when the certificate is set to automatically download.'));
-      }
-    }
-
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
     $name = $values['name'];
     $url = $values['url'];
     $oritentation = $values['orientation'];
-    $download = $values['download'];
     $fileName = $values['file_name'];
     $message = $values['message'];
     $code = $values['code'];
@@ -154,9 +138,7 @@ class CertificatesCreateForm extends ConfigFormBase {
     //   $code += ''
     // }
 
-    if ($download) {
-      $code += 'doc.save("'. trim($fileName) .'.pdf");';
-    }
+    $code += 'doc.save("'. trim($fileName) .'.pdf");';
 
   }
 
